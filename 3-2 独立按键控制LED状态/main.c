@@ -25,7 +25,20 @@ void main()
             Delay1ms(20);
             while (P3_1 == 0);
             Delay1ms(20);
-            P2_0 = ~P2_0; 
+#ifndef P2_0_H
+#define P2_0_H
+            P2_0 = ~P2_0;
+#endif
+        }
+        if (P3_1 == 0)
+        {
+            Delay1ms(20);
+            while (P3_1 == 0);
+            Delay1ms(20);
+#ifndef P2_1_H
+#define P2_1_H
+            P2_1 = ~P2_1;
+#endif
         }
     }
 }

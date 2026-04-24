@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.7.0   MAIN                                                              04/24/2026 13:37:16 PAGE 1   
+C51 COMPILER V9.60.7.0   MAIN                                                              04/24/2026 13:41:35 PAGE 1   
 
 
 C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
@@ -35,20 +35,35 @@ line level    source
   25   3                  Delay1ms(20);
   26   3                  while (P3_1 == 0);
   27   3                  Delay1ms(20);
-  28   3                  P2_0 = ~P2_0; 
-  29   3              }
-  30   2          }
-  31   1      }
+  28   3      #ifndef P2_0_H
+  29   3      #define P2_0_H
+  30   3                  P2_0 = ~P2_0;
+  31   3      #endif
+  32   3              }
+  33   2              if (P3_1 == 0)
+  34   2              {
+  35   3                  Delay1ms(20);
+  36   3                  while (P3_1 == 0);
+  37   3                  Delay1ms(20);
+  38   3      #ifndef P2_1_H
+  39   3      #define P2_1_H
+  40   3                  P2_1 = ~P2_1;
+  41   3      #endif
+  42   3              }
+  43   2          }
+  44   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     44    ----
+   CODE SIZE        =     54    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----    ----
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
+C51 COMPILER V9.60.7.0   MAIN                                                              04/24/2026 13:41:35 PAGE 2   
+
 END OF MODULE INFORMATION.
 
 

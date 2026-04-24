@@ -3,21 +3,46 @@
 unsigned char NixieNumber[] = { 0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f };
 
 void Nixie(unsigned char Location, Number);
+void Delay1ms(unsigned int xms);
+	
 void main()
 {
     while (1)
     {
         Nixie(1, 1);
+        Delay1ms(1);
         Nixie(2, 2);
+        Delay1ms(1);
         Nixie(3, 3);
+        Delay1ms(1);
         Nixie(4, 4);
+        Delay1ms(1);
         Nixie(5, 5);
+        Delay1ms(1);
         Nixie(6, 6);
+        Delay1ms(1);
         Nixie(7, 7);
+        Delay1ms(1);
         Nixie(8, 8);
+        Delay1ms(1);
     }
 }
 
+void Delay1ms(unsigned int xms)		//@12.000MHz
+{
+	unsigned char i, j;
+    while (xms)
+    {
+        i = 2;
+        j = 239;
+        do
+        {
+            while (--j);
+        } while (--i);
+        xms--;
+    }
+    
+}
 void Nixie(unsigned char Location, Number)
     {
         switch (Location)

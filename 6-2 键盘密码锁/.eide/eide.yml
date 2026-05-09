@@ -1,5 +1,5 @@
 version: "4.1"
-name: ddd
+name: J6_2
 type: C51
 deviceName: null
 packDir: null
@@ -18,14 +18,14 @@ virtualFolder:
 dependenceList: []
 outDir: build
 miscInfo:
-  uid: db3255172bc7195f9904b0c060223f9f
+  uid: b898e83e0b84334321e06847a3a062d7
 targets:
   Debug:
     cppPreprocessAttrs:
       defineList: []
       incList:
-        - e:/Keil_v5_C51/C51/INC/Atmel
         - .
+        - e:/Keil_v5_C51/C51/INC/Atmel
       libList: []
     excludeList: []
     settings: {}
@@ -64,7 +64,7 @@ targets:
     uploadConfigMap:
       Custom:
         bin: ""
-        commandLine: python ./tools/stcflash.py -p COM8 "${hexFile}"
+        commandLine: ""
         eraseChipCommand: ""
       stcgal:
         bin: ""

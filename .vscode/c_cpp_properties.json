@@ -4,7 +4,7 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "C:/Users/lenovo/Desktop/KeilProject/ddd"
+                "C:/Users/lenovo/Desktop/KeilProject/J7_1"
             ],
             "defines": [
                 "_DEBUG",

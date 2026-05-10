@@ -5,6 +5,8 @@
         "REGX52.H": "cpp",
         "delay.h": "c",
         "intrins.h": "c",
-        "INTRINS.H": "cpp"
+        "INTRINS.H": "cpp",
+        "matrixkey.h": "c",
+        "timer0.h": "c"
     }
 }

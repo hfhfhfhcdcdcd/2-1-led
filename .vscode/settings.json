@@ -3,6 +3,8 @@
         "lcd1602.h": "c",
         "regx52.h": "c",
         "REGX52.H": "cpp",
-        "delay.h": "c"
+        "delay.h": "c",
+        "intrins.h": "c",
+        "INTRINS.H": "cpp"
     }
 }

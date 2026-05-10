@@ -1,0 +1,20 @@
+{
+  "#ifndef": {
+    "prefix": "ifndef",
+    "body": [
+      "#ifndef __KEY_H__",
+      "#define __KEY_H__",
+      "",
+      "",
+      "",
+      "#endif "
+    ],
+    "description": "#ifndef"
+  },
+  "#include \"\"": {
+    "prefix": "include-",
+    "body": [
+      "#include \"\""
+    ]
+  }
+}

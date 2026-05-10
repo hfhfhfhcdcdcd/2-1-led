@@ -14,6 +14,10 @@ virtualFolder:
     - path: main.c
     - path: MatrixKey.c
     - path: MatrixKey.h
+    - path: Timer0.c
+    - path: Timer0.h
+    - path: key.c
+    - path: key.h
   folders: []
 dependenceList: []
 outDir: build

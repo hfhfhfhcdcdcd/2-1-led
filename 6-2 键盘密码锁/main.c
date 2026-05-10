@@ -29,24 +29,20 @@ void main()
             }
             if (KeyNum == 12)
             {
-                if (Count == 4)
+                if (PassWord == 2222)
                 {
-                    if (PassWord == 2222)
-                    {
-                        LCD_ShowString(1, 11, "OK");
-                    }
-                    else
-                    {
-                        LCD_ShowString(1, 11, "Error");
-                    }
-
-                    Delay(1500);
-                    Count = 0;
-                    PassWord = 0;
-                    LCD_Init();
-                    LCD_ShowString(1, 1, "PassWord:");
+                    LCD_ShowString(1, 11, "OK");
                 }
-                
+                else
+                {
+                    LCD_ShowString(1, 11, "Error");
+                }
+
+                Delay(1500);
+                Count = 0;
+                PassWord = 0;
+                LCD_Init();
+                LCD_ShowString(1, 1, "PassWord:");
             }
             if (KeyNum == 11)
             {

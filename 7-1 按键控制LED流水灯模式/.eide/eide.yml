@@ -18,6 +18,8 @@ virtualFolder:
     - path: Timer0.h
     - path: key.c
     - path: key.h
+    - path: Clock.c
+    - path: Clock.h
   folders: []
 dependenceList: []
 outDir: build
@@ -31,7 +33,8 @@ targets:
         - .
         - e:/Keil_v5_C51/C51/INC/Atmel
       libList: []
-    excludeList: []
+    excludeList:
+      - <virtual_root>/Clock.c
     settings: {}
     toolchain: Keil_C51
     toolchainConfigMap:

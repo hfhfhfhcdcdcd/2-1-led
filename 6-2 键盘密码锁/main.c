@@ -24,6 +24,11 @@ void main()
                     Count++;
                     LCD_ShowNum(2, 1, PassWord, 4);//更新显示密码
                 }
+                
+
+            }
+            if (KeyNum == 12)
+            {
                 if (Count == 4)
                 {
                     if (PassWord == 2222)
@@ -41,9 +46,16 @@ void main()
                     LCD_Init();
                     LCD_ShowString(1, 1, "PassWord:");
                 }
-
-            }
                 
+            }
+            if (KeyNum == 11)
+            {
+                Count = 0;
+                PassWord = 0;
+                LCD_Init();
+                LCD_ShowString(1, 1, "PassWord:");
+            }
+
         }
         
         

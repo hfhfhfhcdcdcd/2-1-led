@@ -10,9 +10,3 @@ unsigned char Key()
     if (P3_3 == 0) { Delay(20); while (P3_3 == 0); Delay(20);KeyNumber = 4; }
     return KeyNumber;
 }
-
-// void Seconds()
-// {
-//     unsigned char Sec = 0;
-//     if
-// }

@@ -1,6 +1,6 @@
 {
   "id": "ifndef",
   "name": "#ifndef",
-  "code": "#ifndef __KEY_H__\r\n#define __KEY_H__\r\n\r\n\r\n\r\n#endif ",
+  "code": "#ifndef ___H__\n#define ___H__\n\n\n\n#endif ",
   "description": "#ifndef"
 }

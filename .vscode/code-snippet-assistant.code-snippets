@@ -17,8 +17,8 @@
   "#ifndef": {
     "prefix": "ifndef",
     "body": [
-      "#ifndef __KEY_H__",
-      "#define __KEY_H__",
+      "#ifndef ___H__",
+      "#define ___H__",
       "",
       "",
       "",

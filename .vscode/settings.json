@@ -8,5 +8,6 @@
         "INTRINS.H": "cpp",
         "matrixkey.h": "c",
         "timer0.h": "c"
-    }
+    },
+    "Codegeex.CompletionDelay": 0.5
 }

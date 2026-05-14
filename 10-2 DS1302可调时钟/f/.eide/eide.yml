@@ -12,6 +12,10 @@ virtualFolder:
     - path: ../Delay.h
     - path: ../MatrixLED.h
     - path: ../MatrixLED.c
+    - path: ../DS1302.c
+    - path: ../DS1302.h
+    - path: ../LCD1602.c
+    - path: ../LCD1602.h
   folders: []
 dependenceList: []
 outDir: build

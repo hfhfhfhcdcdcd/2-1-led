@@ -7,7 +7,7 @@ unsigned char MatrixKey()
 {
     unsigned char KeyNumber = 0;
     P1 = 0xff;
-    P1_3 = 0;
+    P1_3 = 0;//矩阵按键的一只引脚
     if (P1_7 == 0) { Delay(20); while (P1_7 == 0); Delay(20);KeyNumber = 1;}
     if (P1_6 == 0) { Delay(20); while (P1_6 == 0); Delay(20);KeyNumber = 5;}
     if (P1_5 == 0) { Delay(20); while (P1_5 == 0); Delay(20);KeyNumber = 9; }

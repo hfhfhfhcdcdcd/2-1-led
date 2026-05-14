@@ -95,13 +95,13 @@ unsigned char DS1302_ReadData(unsigned char Command)
 void DS1302_SetTime(void)
 {
   DS1302_WriteByte(DS1302_WP, 0x00);//解除写保护
-  DS1302_WriteByte(DS1302_Year,    ((DS1302_Time[0]*16)/10)+((DS1302_Time[0])%10));
-  DS1302_WriteByte(DS1302_Mouth,   ((DS1302_Time[1]*16)/10)+((DS1302_Time[1])%10));
-  DS1302_WriteByte(DS1302_Data,    ((DS1302_Time[2]*16)/10)+((DS1302_Time[2])%10));
-  DS1302_WriteByte(DS1302_Hour,    ((DS1302_Time[3]*16)/10)+((DS1302_Time[3])%10));//小时
-  DS1302_WriteByte(DS1302_Minute,  ((DS1302_Time[4]*16)/10)+((DS1302_Time[4])%10));
-  DS1302_WriteByte(DS1302_Sencond, ((DS1302_Time[5]*16)/10)+((DS1302_Time[5])%10));
-  DS1302_WriteByte(DS1302_Day,     ((DS1302_Time[6]*16)/10)+((DS1302_Time[6])%10));
+  DS1302_WriteByte(DS1302_Year,   DS1302_Time[0] / 10 * 16 + DS1302_Time[0] % 10);
+  DS1302_WriteByte(DS1302_Mouth,  DS1302_Time[1] / 10 * 16 + DS1302_Time[1] % 10);
+  DS1302_WriteByte(DS1302_Data,   DS1302_Time[2] / 10 * 16 + DS1302_Time[2] % 10);
+  DS1302_WriteByte(DS1302_Hour,   DS1302_Time[3] / 10 * 16 + DS1302_Time[3] % 10);
+  DS1302_WriteByte(DS1302_Minute, DS1302_Time[4] / 10 * 16 + DS1302_Time[4] % 10);
+  DS1302_WriteByte(DS1302_Sencond,DS1302_Time[5] / 10 * 16 + DS1302_Time[5] % 10);
+  DS1302_WriteByte(DS1302_Day,    DS1302_Time[6] / 10 * 16 + DS1302_Time[6] % 10);
   DS1302_WriteByte(DS1302_WP, 0x80);//打开写保护
 }
 
@@ -112,11 +112,11 @@ void DS1302_SetTime(void)
   */
 void DS1302_ReadTime(void)
 {
-  DS1302_Time[0] = ((DS1302_ReadData(DS1302_Year)   *10)/16)+(DS1302_ReadData(DS1302_Year)   %16);
-  DS1302_Time[1] = ((DS1302_ReadData(DS1302_Mouth)  *10)/16)+(DS1302_ReadData(DS1302_Mouth)  %16);
-  DS1302_Time[2] = ((DS1302_ReadData(DS1302_Data)   *10)/16)+(DS1302_ReadData(DS1302_Data)   %16);
-  DS1302_Time[3] = ((DS1302_ReadData(DS1302_Hour)   *10)/16)+(DS1302_ReadData(DS1302_Hour)   %16);
-  DS1302_Time[4] = ((DS1302_ReadData(DS1302_Minute) *10)/16)+(DS1302_ReadData(DS1302_Minute) %16);
-  DS1302_Time[5] = ((DS1302_ReadData(DS1302_Sencond)*10)/16)+(DS1302_ReadData(DS1302_Sencond)%16);
-  DS1302_Time[6] = ((DS1302_ReadData(DS1302_Day)    *10)/16)+(DS1302_ReadData(DS1302_Day)    %16);
+  DS1302_Time[0] = DS1302_ReadData(DS1302_Year)   /16*10+DS1302_ReadData(DS1302_Year)   %16;
+  DS1302_Time[1] = DS1302_ReadData(DS1302_Mouth)  /16*10+DS1302_ReadData(DS1302_Mouth)  %16;
+  DS1302_Time[2] = DS1302_ReadData(DS1302_Data)   /16*10+DS1302_ReadData(DS1302_Data)   %16;
+  DS1302_Time[3] = DS1302_ReadData(DS1302_Hour)   /16*10+DS1302_ReadData(DS1302_Hour)   %16;
+  DS1302_Time[4] = DS1302_ReadData(DS1302_Minute) /16*10+DS1302_ReadData(DS1302_Minute) %16;
+  DS1302_Time[5] = DS1302_ReadData(DS1302_Sencond)/16*10+DS1302_ReadData(DS1302_Sencond)%16;
+  DS1302_Time[6] = DS1302_ReadData(DS1302_Day)    /16*10+DS1302_ReadData(DS1302_Day)    %16;
 }

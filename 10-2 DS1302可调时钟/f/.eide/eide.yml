@@ -20,6 +20,8 @@ virtualFolder:
     - path: ../key.h
     - path: ../Change_Time.c
     - path: ../Change_Time.h
+    - path: ../Timer0.c
+    - path: ../Timer0.h
   folders: []
 dependenceList: []
 outDir: build
@@ -30,9 +32,8 @@ targets:
     cppPreprocessAttrs:
       defineList: []
       incList:
-        - .
-        - e:/Keil_v5_C51/C51/INC/Atmel
         - ..
+        - e:/Keil_v5_C51/C51/INC/Atmel
       libList: []
     excludeList: []
     settings: {}

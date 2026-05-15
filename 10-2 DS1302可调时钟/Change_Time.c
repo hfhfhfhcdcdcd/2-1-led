@@ -1,22 +1,32 @@
 #include "key.h"
 #include "delay.h"
+#include "lcd1602.h"
 #include "DS1302.h"
 #include "regx52.h"
 
 unsigned char  KeyNum, MODE, Count;
 
-void change(void)
+void Time_Show(void)
+{
+  LCD_ShowNum(1, 1,    DS1302_Time[0], 2);
+  LCD_ShowNum(1, 4,    DS1302_Time[1], 2);
+  LCD_ShowNum(1, 7,    DS1302_Time[2], 2);
+  LCD_ShowNum(1, 10,   DS1302_Time[6], 2);//星期
+
+  LCD_ShowNum(2, 1,    DS1302_Time[3], 2);//时
+  LCD_ShowNum(2, 4,    DS1302_Time[4], 2);//分
+  LCD_ShowNum(2, 7,    DS1302_Time[5], 2);//秒
+}
+
+
+void Time_Set(void)
 {
   KeyNum = Key();
   switch (KeyNum)
   {
-    case 1:
-      if (MODE == 0) { MODE = 1; }
-      else { MODE = 0; }
-      break;
     case 2:
       Count++;
-      Count %= 7;
+      Count %= 7;P2 = 0x00;
       break;
     case 3:
       DS1302_Time[Count]++;
@@ -111,3 +121,7 @@ void change(void)
   }
 }
 
+// void change(void)
+// {
+  
+// }

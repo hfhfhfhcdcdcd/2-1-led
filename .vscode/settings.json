@@ -9,7 +9,8 @@
         "matrixkey.h": "c",
         "timer0.h": "c",
         "matrixled.h": "c",
-        "ds1302.h": "c"
+        "ds1302.h": "c",
+        "key.h": "c"
     },
     "Codegeex.CompletionDelay": 0.5
 }

@@ -120,3 +120,4 @@ void DS1302_ReadTime(void)
   DS1302_Time[5] = DS1302_ReadData(DS1302_Sencond)/16*10+DS1302_ReadData(DS1302_Sencond)%16;
   DS1302_Time[6] = DS1302_ReadData(DS1302_Day)    /16*10+DS1302_ReadData(DS1302_Day)    %16;
 }
+

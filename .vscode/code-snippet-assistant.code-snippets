@@ -18,7 +18,7 @@
     "prefix": "ifndef",
     "body": [
       "#ifndef ___H__",
-      "#define  ",
+      "#define ",
       "",
       "",
       "",
@@ -26,8 +26,8 @@
     ],
     "description": "#ifndef"
   },
-  "#include \"\"": {
-    "prefix": "include-",
+  "#include": {
+    "prefix": "include",
     "body": [
       "#include \"\""
     ]

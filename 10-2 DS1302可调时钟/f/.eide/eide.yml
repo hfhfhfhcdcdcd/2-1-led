@@ -16,6 +16,10 @@ virtualFolder:
     - path: ../DS1302.h
     - path: ../LCD1602.c
     - path: ../LCD1602.h
+    - path: ../key.c
+    - path: ../key.h
+    - path: ../Change_Time.c
+    - path: ../Change_Time.h
   folders: []
 dependenceList: []
 outDir: build

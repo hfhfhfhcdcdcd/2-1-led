@@ -17,16 +17,8 @@ void main()
     while (1)
     {
         DS1302_ReadTime();
-        // Time_Show();
-        KeyNum = Key();
-        switch (KeyNum)
-        {
-        case 1:
-            if (MODE == 0) { MODE = 1;Time_Set();}
-            else if (MODE = 1) { MODE == 0; Time_Show(); }
-            break;
-        default:Time_Show();break;
-  }
+
+    
 
           
     }

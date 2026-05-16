@@ -17,9 +17,8 @@ void main()
     
     while (1)
     {
-        KeyNum = Key();//从按键获取返回值,返回值为1234
         /*按键1按下去切换是显示还是设置*/
-        TimeSet();
+        change();
         /*显示的话调用TimeShow.设置的话调用TimeSet*/
         switch (MODE)
         {
@@ -39,7 +38,7 @@ void Timer0_Rountine() interrupt 1
     if (T0Count == 500)
     {
         T0Count = 0;
-        if (MODE == 1) { LCD_ShowString(1, 1, "  ");Delay(500); }
+        Flagflash = !Flagflash;
     }
         
 

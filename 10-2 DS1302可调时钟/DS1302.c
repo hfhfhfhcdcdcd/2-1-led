@@ -18,7 +18,7 @@ sbit DS1302_CE = P3 ^ 5;
 #define DS1302_Year     0x8C
 #define DS1302_WP       0x8E
 
-unsigned char DS1302_Time[] = { 40,10,25,22,57,57,5 };
+unsigned char DS1302_Time[] = { 97,10,25,22,57,57,5 };
 
 /**
     * @brief: 初始化DS1302

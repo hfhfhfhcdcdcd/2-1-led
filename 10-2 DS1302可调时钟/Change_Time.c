@@ -6,8 +6,24 @@
 #include "Change_Time.h"
 
 
-unsigned char KeyNum, MODE, TimeSelect;
+unsigned char KeyNum, MODE, TimeSelect,Flagflash;
+
 /**
+  * @brief: 
+  * @param:
+  * @retval:
+  */
+void change(void)
+{
+  KeyNum = Key();//从按键获取返回值,返回值为1234
+  if (KeyNum == 1)
+  {
+    if (MODE == 0) { MODE = 1; }
+    else if (MODE == 1) { MODE = 0; }
+  }
+}
+
+  /**
   * @brief: 按下按键一控制改时间还是显示。按下按键二控制更改其中的哪个数据。按下按键三，对这个数据加加。按下按键四，对这个数据减减
   * @param:无
   * @retval:无
@@ -20,11 +36,11 @@ void TimeShow(void)
     LCD_ShowNum(1, 7, DS1302_Time[2], 2);
     if (DS1302_Time[6] == 7)
     {
-        LCD_ShowString(1, 10,"Sun");
+      LCD_ShowString(1, 10,"Sun");
     }
     else
     {
-        LCD_ShowNum(1, 10, DS1302_Time[6], 3);//星期
+      LCD_ShowNum(1, 10, DS1302_Time[6], 3);//星期
     }
         
     LCD_ShowNum(2, 1,    DS1302_Time[3], 2);//时
@@ -40,41 +56,36 @@ void TimeShow(void)
   */
 void TimeSet(void)
 {
-  if (KeyNum == 1)
-  {
-    if (MODE == 0) { MODE = 1; }
-    else if (MODE == 1) { MODE = 0; }
-  }
   if (KeyNum == 2)
   {
-      TimeSelect++;
-      TimeSelect %= 7;
+    TimeSelect++;
+    TimeSelect %= 7;
   }  
   if (KeyNum == 3)
   {
     DS1302_Time[TimeSelect]++;
     if (DS1302_Time[0] > 99)//年
     {
-        DS1302_Time[0] = 1;
+      DS1302_Time[0] = 1;
     }
     if (DS1302_Time[1] > 12)//月
     {
-        DS1302_Time[1] = 1;
+      DS1302_Time[1] = 1;
     }
     /*31天的月份  的 溢出判断*/
     if ((DS1302_Time[1] == 1) || (DS1302_Time[1] == 3) || (DS1302_Time[1] == 5) || (DS1302_Time[1] == 7) || (DS1302_Time[1] == 8) || (DS1302_Time[1] == 10) || (DS1302_Time[1] == 12))
     {
-        if (DS1302_Time[2] > 31)//日
-        {
+      if (DS1302_Time[2] > 31)//日
+      {
         DS1302_Time[2] = 1;
-        }
+      }
     }
     /*30天的月份  的 溢出判断*/
     if ((DS1302_Time[1] == 4) || (DS1302_Time[1] == 6) || (DS1302_Time[1] == 9) || (DS1302_Time[1] == 11))
     {
       if (DS1302_Time[2] > 30)//日
       {
-      DS1302_Time[2] = 1;
+        DS1302_Time[2] = 1;
       }
     }
     /*2月份  的 溢出判断*/
@@ -85,7 +96,7 @@ void TimeSet(void)
       {
         if (DS1302_Time[2] > 29)//日
         {
-        DS1302_Time[2] = 1;
+          DS1302_Time[2] = 1;
         }
       }
       /*平年2月份  的 溢出判断*/
@@ -99,19 +110,19 @@ void TimeSet(void)
     }
     if (DS1302_Time[3] > 23)//时
     {
-        DS1302_Time[3] = 0;
+      DS1302_Time[3] = 0;
     }
     if (DS1302_Time[4] > 59)// 分
     {
-        DS1302_Time[4] = 0;
+      DS1302_Time[4] = 0;
     }
     if (DS1302_Time[5] > 59)//秒
     {
-        DS1302_Time[5] = 0;
+      DS1302_Time[5] = 0;
     }
     if (DS1302_Time[6] > 7)//星期
     {
-        DS1302_Time[6] = 1;
+      DS1302_Time[6] = 1;
     }
     DS1302_SetTime();
   }
@@ -119,13 +130,13 @@ void TimeSet(void)
   {
     DS1302_Time[TimeSelect]--;
 
-    if (DS1302_Time[0] = 255)//年
+    if (DS1302_Time[0] == 255)//年
     {
-        DS1302_Time[0] = 99;
+      DS1302_Time[0] = 99;
     }
     if (DS1302_Time[1] < 1)//月
     {
-        DS1302_Time[1] = 12;
+      DS1302_Time[1] = 12;
     }
     /*31天的月份  的 溢出判断*/
     if ((DS1302_Time[1] == 1) || (DS1302_Time[1] == 3) || (DS1302_Time[1] == 5) || (DS1302_Time[1] == 7) || (DS1302_Time[1] == 8) || (DS1302_Time[1] == 10) || (DS1302_Time[1] == 12))
@@ -160,7 +171,6 @@ void TimeSet(void)
         if (DS1302_Time[2] < 1)//日
         {
           DS1302_Time[2] = 29;
-          
         }
         if (DS1302_Time[2] > 29)//日
         {
@@ -170,33 +180,32 @@ void TimeSet(void)
         /*平年2月份  的 溢出判断*/
         else
         {
-            if (DS1302_Time[2] < 1)//日
-            {
-                DS1302_Time[2] = 28;
-            }
-            if (DS1302_Time[2] > 28)//日
-            {
-              DS1302_Time[2] = 1;
-            }
+          if (DS1302_Time[2] < 1)//日
+          {
+            DS1302_Time[2] = 28;
+          }
+          if (DS1302_Time[2] > 28)//日
+          {
+            DS1302_Time[2] = 1;
+          }
         }
     }
     if (DS1302_Time[3] ==255)//时
     {
-        DS1302_Time[3] = 23;
+      DS1302_Time[3] = 23;
     }
     if (DS1302_Time[4] == 255)// 分
     {
-        DS1302_Time[4] = 59;
+      DS1302_Time[4] = 59;
     }
     if (DS1302_Time[5] == 255)//秒
     {
-        DS1302_Time[5] = 59;
+      DS1302_Time[5] = 59;
     }  
     if (DS1302_Time[6] < 1)//星期
     {
-        DS1302_Time[6] = 7;
+      DS1302_Time[6] = 7;
     }
-
     DS1302_SetTime();
   }
   switch (TimeSelect)
@@ -211,19 +220,37 @@ void TimeSet(void)
   default:break;
   }
 
-  LCD_ShowNum(1, 1, DS1302_Time[0], 2);
-  LCD_ShowNum(1, 4,    DS1302_Time[1], 2);
-  LCD_ShowNum(1, 7,    DS1302_Time[2], 2);
-  LCD_ShowNum(1, 10,   DS1302_Time[6], 3);//星期
-  if (DS1302_Time[6] == 7)
-  {
-      LCD_ShowString(1, 10,"Sun");
-  }
+
+
+  if ((Flagflash == 1) && (TimeSelect == 0)) { LCD_ShowString(1, 1, "  "); }//年
+  else{LCD_ShowNum(1, 1, DS1302_Time[0], 2);}
+
+  if ((Flagflash == 1) && (TimeSelect == 1)) { LCD_ShowString(1, 4, "  "); }//月
+  else { LCD_ShowNum(1, 4, DS1302_Time[1], 2); }
+
+  if ((Flagflash == 1) && (TimeSelect == 2)) { LCD_ShowString(1, 7, "  "); }//日
+  else { LCD_ShowNum(1, 7, DS1302_Time[2], 2); }
+
+  if ((Flagflash == 1) && (TimeSelect == 6)) { LCD_ShowString(1, 10, "   "); }//星期
   else
   {
-      LCD_ShowNum(1, 10, DS1302_Time[6], 3);//星期
+    if (DS1302_Time[6] == 7)
+    {
+      LCD_ShowString(1, 10,"Sun");
+    }
+    else
+    {
+      LCD_ShowNum(1, 10, DS1302_Time[6], 3);
+    }
   }
-  LCD_ShowNum(2, 1, DS1302_Time[3], 2);//时
-  LCD_ShowNum(2, 4,    DS1302_Time[4], 2);//分
-  LCD_ShowNum(2, 7,    DS1302_Time[5], 2);//秒
+
+  if ((Flagflash == 1) && (TimeSelect == 3)) { LCD_ShowString(2, 1, "  "); }//时
+  else { LCD_ShowNum(2, 1, DS1302_Time[3], 2); }
+
+  if ((Flagflash == 1) && (TimeSelect == 4)) { LCD_ShowString(2, 4, "  "); }//分
+  else { LCD_ShowNum(2, 4, DS1302_Time[4], 2); }
+
+
+  if ((Flagflash == 1) && (TimeSelect == 5)) { LCD_ShowString(2, 7, "  "); }//秒
+  else{LCD_ShowNum(2, 7, DS1302_Time[5], 2);}
 }

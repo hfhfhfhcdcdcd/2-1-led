@@ -1,9 +1,9 @@
-// #ifndef __CHANGE_TIME_H__
-// #define __CHANGE_TIME_H__
+#ifndef __CHANGE_TIME_H__
+#define __CHANGE_TIME_H__
 
-// // void change(void);
 
-// void Time_Show(void);
-// void Time_Set(void);
+extern unsigned char KeyNum,MODE,TimeSelect;
+void TimeShow(void);
+void TimeSet(void);
 
-// #endif 
+#endif 

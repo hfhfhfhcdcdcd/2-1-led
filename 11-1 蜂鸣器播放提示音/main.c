@@ -18,7 +18,6 @@ void main()
             Buzzer_Time(70);
             Nixie(1, KeyNum);
         }
-
     }
 }
 

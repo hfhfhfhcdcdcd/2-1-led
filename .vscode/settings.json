@@ -11,7 +11,8 @@
         "matrixled.h": "c",
         "ds1302.h": "c",
         "key.h": "c",
-        "change_time.h": "c"
+        "change_time.h": "c",
+        "buzzer.h": "c"
     },
     "Codegeex.CompletionDelay": 0.5
 }

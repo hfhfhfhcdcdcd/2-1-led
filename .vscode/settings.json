@@ -12,7 +12,8 @@
         "ds1302.h": "c",
         "key.h": "c",
         "change_time.h": "c",
-        "buzzer.h": "c"
+        "buzzer.h": "c",
+        "nixie.h": "c"
     },
     "Codegeex.CompletionDelay": 0.5
 }

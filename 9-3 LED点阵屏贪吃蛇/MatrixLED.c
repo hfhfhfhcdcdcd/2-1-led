@@ -46,5 +46,5 @@ void MatrixLED_ShowColum(unsigned char Column, unsigned char Data)
     _74HC595_WriteByte(Data);
     P0 = ~(0x80 >> Column);
     Delay(1);
-    // P0 = 0xff;
+    P0 = 0xff;
 }

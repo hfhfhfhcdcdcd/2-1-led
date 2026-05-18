@@ -13,7 +13,9 @@
         "key.h": "c",
         "change_time.h": "c",
         "buzzer.h": "c",
-        "nixie.h": "c"
+        "nixie.h": "c",
+        "stdlib.h": "c",
+        "STDLIB.H": "cpp"
     },
     "Codegeex.CompletionDelay": 0.5
 }

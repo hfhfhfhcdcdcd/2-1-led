@@ -11,12 +11,12 @@ sbit SER = P3 ^ 4;
   * @param:写入的字节Data
   * @retval:无
   */
-void _74HC595_WriteByte(unsigned long Byte)
+void _74HC595_WriteByte(unsigned char Byte)
 {
     unsigned char i;
-    for (i = 0;i < 16;i++)
+    for (i = 0;i < 8;i++)
     {
-        SER = Byte & (0x8000 >> i);//按位与出来的  任何非零数  都相当于“1”；0=0。
+        SER = Byte & (0x80 >> i);//按位与出来的  任何非零数  都相当于“1”；0=0。
         SCK = 1;
         SCK = 0;
     }
@@ -40,12 +40,11 @@ void MatrixLED_Init()
   * @param: Column列，范围0~7，最左边是第0行；Data在这列显示的灯，上边是高位。Column给低电平有效，Data高电平有效。eg：0，0xff => 第一行的小灯全亮
   * @retval:无
   */
-void MatrixLED_ShowColum(unsigned long Column, unsigned long Data)
+void MatrixLED_ShowColum(unsigned char Column, unsigned char Data)
 {
     
     _74HC595_WriteByte(Data);
-    P0 = ~(0x8000 >> Column);
+    P0 = ~(0x80 >> Column);
     Delay(1);
     P0 = 0xff;
-    P1 = 0xff;
 }
